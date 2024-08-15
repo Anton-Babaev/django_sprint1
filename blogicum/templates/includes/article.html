@@ -5,7 +5,6 @@
     </li>
     <li>
       Дата: {{ post.date }}
-      {{request.resolver_match.view_name}}
     </li>
     <li>
       Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a>

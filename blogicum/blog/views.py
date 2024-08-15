@@ -45,6 +45,7 @@ posts = [
     },
 ]
 
+posts_data = {post['id']: post for post in posts}
 
 def index(request):
     """Index."""
@@ -53,10 +54,10 @@ def index(request):
     return render(request, template_name, context)
 
 
-def post_detail(request, id):
+def post_detail(request, post_id):
     """Post."""
     try:
-        post = posts[id]
+        post = posts_data[post_id]
     except IndexError:
         raise Http404('Пост отсутствует.')
     template_name = 'blog/detail.html'
@@ -67,5 +68,5 @@ def post_detail(request, id):
 def category_posts(request, category_slug):
     """Category."""
     template_name = 'blog/category.html'
-    context = {'personal': category_slug}
+    context = {'category': category_slug}
     return render(request, template_name, context)
