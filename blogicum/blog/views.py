@@ -47,6 +47,7 @@ posts = [
 
 posts_data = {post['id']: post for post in posts}
 
+
 def index(request):
     """Index."""
     template_name = 'blog/index.html'
