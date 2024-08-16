@@ -45,7 +45,7 @@ posts = [
     },
 ]
 
-posts_data = {post['id']: post for post in posts}
+posts_by_id = {post['id']: post for post in posts}
 
 
 def index(request):
@@ -58,7 +58,7 @@ def index(request):
 def post_detail(request, post_id):
     """Post."""
     try:
-        post = posts_data[post_id]
+        post = posts_by_id[post_id]
     except IndexError:
         raise Http404('Пост отсутствует.')
     template_name = 'blog/detail.html'
